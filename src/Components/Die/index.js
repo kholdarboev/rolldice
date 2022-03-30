@@ -1,8 +1,7 @@
 import React from 'react';
 import { Container,Dies,Wobble } from './style';
-
 const Die = (props) => {
-    let random =  `fas fa-dice-${props.face}` 
+    let random =`fas fa-dice-${props.face}` 
   return ( 
       <Container>
         {props.rolling 

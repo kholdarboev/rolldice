@@ -1,43 +1,36 @@
 import React,{useState} from 'react'
 import Die from '../Die'
 import { Button, Container, Dice, H1, Players,P, RollDies, Parag } from './style'
-
-const Rolldice = (props) => {
-    const [lists,setLists] = useState(['one','two','three','four','five','six'])
+const Rolldice = () => {
+    const [lists] = useState(['one','two','three','four','five','six'])
     const [dieOne, setDieOne] = useState({die1:'one', die2:'two', rolling:false})
     const [isRolling, setIsrolling] = useState(false)
-    const [playerOne, setPlayerOne] = useState('Player1')
-    const [playerTwo, setPlayerTwo] = useState('Player2')
+    const [playerOne, setPlayerOne] = useState('Player 1')
+    const [playerTwo, setPlayerTwo] = useState('Player 2')
     const Click =() => {
-     const newDieOne = lists[Math.floor(Math.random()*lists.length)]
-     const newDieTwo = lists[Math.floor(Math.random()*lists.length)]
-     setDieOne({die1:newDieOne, die2:newDieTwo})
-     let res = newDieOne > newDieTwo ? <P>{playerOne} won!!!</P> : <P> {playerTwo} won!!! </P>
-     setIsrolling(true)
-     
-     
+      const newDieOne = lists[Math.floor(Math.random()*lists.length)]
+      const newDieTwo = lists[Math.floor(Math.random()*lists.length)]
+      setDieOne({die1:newDieOne, die2:newDieTwo})
+      setIsrolling(true)
      setTimeout(() => {
        setIsrolling(false)
       }, 1000);
     }
-    const editPlayerOneName = ( ) => {
-      setPlayerOne((e)=>{
-        prompt( e.target.value)
-      })
+    const playerOneNameChange = (e) => {
+       setPlayerOne(e.target.value)
     }
-    const editPlayerTwoName =(e) => {
-      setPlayerTwo((e)=>{
-      })
+    const playerTwoNameChange = (e) => {
+       setPlayerTwo(e.target.value)
     }
-
   return (
       <Container>
         <H1>Let's Play</H1>
         <Dice>
         <Players parag>
-          <Parag onClick={editPlayerOneName}>Edit PlayerOne name</Parag> 
-          <Parag onChange={editPlayerTwoName}>Edit {playerTwo} name</Parag> 
+          <Parag  onChange={playerOneNameChange} type="text" placeholder='edit name' value={playerOne}></Parag>
+          <Parag onChange={playerTwoNameChange} type="text" placeholder='edit name' value={playerTwo}></Parag>
         </Players>
+          {dieOne.die1 === dieOne.die2 && <P> Draw!!! </P> }
           <Players>
           <P> {playerOne}</P>
           <P> {playerTwo}</P>

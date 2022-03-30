@@ -1,15 +1,11 @@
 import styled from 'styled-components';
- 
-
 export const Container = styled.div`
 text-align: center;
-
 `
 export const Dies = styled.div`
-font-size: 10em;
+font-size: 12em;
 color:lightseagreen;
-padding: 0.12em;
-
+padding: 0.22em;
 `
 export const Wobble = styled.div`
 animation-name: wobble;

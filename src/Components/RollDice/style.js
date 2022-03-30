@@ -34,14 +34,12 @@ color: whitesmoke;
 export const H1 = styled.h1`
 font-size: 4rem;
 color:lightseagreen;
-margin:0;
+margin:0 0 30px;
 `
 export const Players = styled.div`
 display: flex;
 justify-content: center;
 width: 100%;
-background-color: ${props => props.parag ? 'lightseagreen' : ''};
-border-radius : ${props => props.parag ? '30px' : '0px'} ;
 `
 export const P = styled.p`
 padding: 0 40px;
@@ -54,11 +52,19 @@ font-weight:bold;
 export const RollDies = styled.div`
 display: flex;
 `
-export const Parag = styled.p`
+export const Parag = styled.input`
 text-align: center;
 font-weight:bold;
 font-size: 18px;
- color:white;
-padding: 10px 10px;
-
+color: white;
+border: none;
+border-radius: 30px;
+padding: 10px 0;
+background-color: lightseagreen;
+outline: none;
+opacity: .8;
+:hover{
+    opacity: 1;
+}
+cursor: pointer;
 `
